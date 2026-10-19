@@ -6,3 +6,6 @@ __pycache__/
 # Local hosting configuration and manuscript-dependent generator
 .rapd-sites-config/
 build.py
+
+# Local authoring and validation tools, not used by the website
+/scripts/

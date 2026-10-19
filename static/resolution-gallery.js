@@ -9,7 +9,6 @@ class ResolutionGallery {
     this.status = document.getElementById('resolution-status');
     this.stage = document.getElementById('gallery-stage');
     this.zoom = document.getElementById('resolution-zoom');
-    this.download = document.getElementById('resolution-download');
     this.session = 0;
     this.selection = 0;
     this.cache = new Map();
@@ -50,7 +49,7 @@ class ResolutionGallery {
   async manifest() {
     if (window.RAPD_RESOLUTION_MANIFEST) return window.RAPD_RESOLUTION_MANIFEST;
     if (!this.manifestPromise) {
-      this.manifestPromise = fetch('gallery/resolutions/manifest.json?v=1')
+      this.manifestPromise = fetch('gallery/resolutions/manifest.json?v=2')
         .then(response => {
           if (!response.ok) throw new Error('Manifest unavailable');
           return response.json();
@@ -67,7 +66,6 @@ class ResolutionGallery {
     this.slider.disabled = true;
     this.output.textContent = '4096';
     this.status.textContent = 'Loading resolution options…';
-    this.download.href = source;
     try {
       const manifest = await this.manifest();
       if (session !== this.session || !this.dialog.open) return;
@@ -97,8 +95,6 @@ class ResolutionGallery {
     this.fullController?.abort();
     this.output.textContent = `${frame.width} × ${frame.height}`;
     this.slider.setAttribute('aria-valuetext', `${frame.width} by ${frame.height} pixels`);
-    this.download.href = frame.full;
-    this.download.download = `${this.sample.original.split('/').pop().replace(/\.[^.]+$/, '')}-${size}.webp`;
     this.status.textContent = 'Loading preview…';
     // Discard queued speculation so the latest requested frame has priority.
     this.queue.splice(0).forEach(job => { this.pending.delete(job.url); job.resolve(null); });
