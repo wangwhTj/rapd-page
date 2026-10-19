@@ -55,10 +55,11 @@ body.gallery-modal-open{overflow:hidden}
 .publication-links .code-placeholder:hover{transform:none}
 @media(max-width:480px){.publication-links{flex-wrap:wrap}}
 
-/* Place the acceptance note in the existing title margin without shifting content. */
-.hero .publication-title{position:relative}
-.hero .publication-title .acceptance-note{position:absolute;top:100%;left:0;right:0;margin-top:6px;color:var(--orange);font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:500;line-height:16px;letter-spacing:0;white-space:nowrap}
-@media(max-width:768px){.hero .publication-title .acceptance-note{margin-top:3px;font-size:11px;line-height:14px}}
+/* Conference badge beside the navigation brand. */
+nav{flex-wrap:wrap;gap:14px 20px}
+.brand-group{display:inline-flex;align-items:center;gap:12px;flex-shrink:0}
+.conference-badge{display:inline-flex;align-items:center;padding:5px 10px;border:2px solid var(--orange);border-radius:6px;background:#fff1e8;color:#9a3412;font-size:14px;font-weight:800;line-height:1.2;letter-spacing:.02em;white-space:nowrap}
+@media(max-width:700px){.brand-group{gap:10px}.conference-badge{font-size:12px;padding:4px 8px}}
 
 /* Resolution slider: fixed stage prevents layout jumps while dragging. */
 #gallery-stage{height:min(58vh,620px);width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f4f6f8;border-radius:6px}
