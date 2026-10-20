@@ -2,7 +2,8 @@
 
 Project website for **RaPD: Resolution-Agnostic Pixel Diffusion via Semantics-Enriched Implicit Representations**.
 
-- Website: https://wangwhtj.github.io/rapd/
+- Website: https://wangwhtj.github.io/rapd-page/
+- Code: https://github.com/wangwhTj/rapd.git
 - Paper: https://arxiv.org/abs/2605.15908
 
 ## Publishing
